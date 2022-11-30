@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Площадка для публикации фото">
+  <meta name="keywords" content="start,project,js">
+  <meta name="author" content="Артём">
+  <title>Место</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body>
+  <div class="page">
+
+  <!--Popup-->
+
+  <div class="popup">
+    <form class="popup__container">
+      <button class="popup__close-button" type="button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input class="popup__field popup__field_type_name" type="text" placeholder="Имя">
+      <input class="popup__field popup__field_type_info" type="text" placeholder="О себе">
+      <input class="popup__submit-button" type="submit" value="Сохранить">
+    </form>
+  </div>
+
+  <!--Header-->
+
+  <header class="header">
+    <img class="header__logo" src="./images/Logo.svg" alt="Логотип">
+    <div class="header__line"></div>
+  </header>
+
+  <!--Main-->
+
+  <main class="main">
+
+    <!--Profile-->
+
+    <section class="profile">
+      <div class="profile__avatar">
+        <img class="profile__pic" src="./images/Avatar.jpg" alt="Аватар">
+        <article class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <p class="profile__subtitle">Исследователь океана</p>
+          <button class="profile__edit-button" type="button"></button>
+        </article>
+      </div>
+      <label class="profile__add-button-wrapper" for="profile__add-button">
+        <input class="profile__add-button" id="profile__add-button" type="file">
+      </label>
+    </section>
+
+    <!--Elements-->
+
+    <section class="elements">
+      <ul class="elements__items">
+
+        <li>
+          <img class="elements__pic" src="./images/Elements-1.jpg" alt="Церковь в горах">
+          <article class="elements__item">
+            <h2 class="elements__title">Карачаевск</h2>
+            <button class="elements__like-button" type="button"></button>
+          </article>
+        </li>
+
+        <li>
+          <img class="elements__pic" src="./images/Elements-2.jpg" alt="Пики Эльбруса на закате">
+          <article class="elements__item">
+            <h2 class="elements__title">Гора Эльбрус</h2>
+            <button class="elements__like-button" type="button"></button>
+          </article>
+        </li>
+
+        <li>
+          <img class="elements__pic" src="./images/Elements-3.jpg" alt="Вид на Эльбрус">
+          <article class="elements__item">
+            <h2 class="elements__title">Домбай</h2>
+            <button class="elements__like-button" type="button"></button>
+          </article>
+        </li>
+
+        <li>
+          <img class="elements__pic" src="./images/Elements-2.jpg" alt="Пики Эльбруса на закате">
+          <article class="elements__item">
+            <h2 class="elements__title">Гора Эльбрус</h2>
+            <button class="elements__like-button" type="button"></button>
+          </article>
+        </li>
+
+        <li>
+          <img class="elements__pic" src="./images/Elements-3.jpg" alt="Вид на Эльбрус">
+          <article class="elements__item">
+            <h2 class="elements__title">Домбай</h2>
+            <button class="elements__like-button" type="button"></button>
+          </article>
+        </li>
+
+        <li>
+          <img class="elements__pic" src="./images/Elements-1.jpg" alt="Церковь в горах">
+          <article class="elements__item">
+            <h2 class="elements__title">Карачаевск</h2>
+            <button class="elements__like-button" type="button"></button>
+          </article>
+        </li>
+
+      </ul>
+    </section>
+  </main>
+
+  <!--Footer-->
+
+  <footer class="footer">
+    <h2 class="footer__title">&copy; 2022 Mesto Russia</h2>
+  </footer>
+  </div>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.elements__item {
+  box-sizing: border-box;
+  padding: 25px 20px;
+  border-radius: 0 0 10px 10px;
+
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

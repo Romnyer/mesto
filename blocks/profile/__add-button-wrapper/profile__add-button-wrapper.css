@@ -1,0 +1,35 @@
+.profile__add-button-wrapper {
+  width: 150px;
+  min-width: 50px;
+  height: 50px;
+  margin-left: 30px;
+  box-sizing: border-box;
+  padding: 0;
+  background: url(../../../images/Plus.svg) no-repeat center center;
+  border: 2px solid #fff;
+  border-radius: 2px;
+
+  cursor: pointer;
+  transition-property: opacity;
+  transition-duration: 0.8s;
+}
+
+.profile__add-button-wrapper:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 443px) {
+
+  .profile__add-button-wrapper {
+    width: 282px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .profile__add-button-wrapper {
+    background-size: 16px 16px;
+  }
+}
+
