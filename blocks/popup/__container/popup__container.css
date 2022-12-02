@@ -1,24 +1,6 @@
 .popup__container {
-  max-width: 430px;
-  box-sizing: border-box;
-  background: #fff;
   position: relative;
   display: block;
   margin: auto;
-  border-radius: 10px;
-}
-
-@media (max-width: 509px) {
-
-  .popup__container {
-    max-width: 88.16vw;
-  }
-}
-
-@media (max-width: 320px) {
-
-  .popup__container {
-    max-width: 282px;
-  }
 }
 

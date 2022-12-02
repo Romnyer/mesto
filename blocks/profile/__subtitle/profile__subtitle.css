@@ -12,7 +12,7 @@
 @media (max-width: 443px) {
 
   .profile__subtitle {
-    margin: 14px 0 36px;
+    margin-top: 14px;
 
     font-size: 14px;
     line-height: 17px;
@@ -23,7 +23,6 @@
 @media (max-width: 320px) {
 
   .profile__subtitle {
-    margin-top: 7px;
-    height: 14px;
+    margin-top: 4px;
   }
 }

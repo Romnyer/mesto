@@ -2,14 +2,14 @@
   position: relative;
   width: 100%;
   max-width: 358px;
-  padding: 0 0 12px;
-  margin: 0 36px 18px;
+  padding: 0 0 9px;
+  margin: 0 36px 30px;
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
   font-size: 14px;
-  line-height: 14px;
+  line-height: 17px;
 }
 
 .popup__field:focus {
@@ -24,8 +24,8 @@
 @media (max-width: 509px) {
 
   .popup__field {
-    margin: 0 22px 30px;
-    max-width: 74.45vw;
+    margin: 0 22px 29px;
+    max-width: calc(100vw - 38px - 44px);
   }
 }
 
