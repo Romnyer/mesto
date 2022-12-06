@@ -1,7 +1,7 @@
 .elements {
   max-width: 880px;
   margin: 0 auto;
-  padding: 51px 0 67px;
+  padding: 51px 0 70px;
 }
 
 @media (max-width: 320px) {
@@ -9,6 +9,6 @@
   .elements {
     max-width: 320px;
     margin: 0;
-    padding: 36px 0 48px;
+    padding: 36px 0 50px;
   }
 }

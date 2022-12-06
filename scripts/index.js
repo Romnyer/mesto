@@ -10,6 +10,8 @@ let profileTitle = document.querySelector('.profile__title');
 let profileSubTitle = document.querySelector('.profile__subtitle');
 let editButton = document.querySelector('.profile__edit-button');
 
+/* Function show/close */
+
 function showPopUp() {
   popUp.classList.add('popup_opened');
   fieldName.value = profileTitle.textContent;
@@ -19,9 +21,6 @@ function showPopUp() {
 function closePopUp() {
     popUp.classList.remove('popup_opened');
 }
-
-editButton.addEventListener('click', showPopUp);
-closeButton.addEventListener('click', closePopUp);
 
 /* Function submit */
 
@@ -33,8 +32,21 @@ function formSubmit(evt) {
   closePopUp();
 }
 
-form.addEventListener('submit', formSubmit)
+/* Event listeners */
 
+editButton.addEventListener('click', showPopUp);
+closeButton.addEventListener('click', closePopUp);
+form.addEventListener('submit', formSubmit);
+/*
+profileTitle.style.fontSize = '42px';
+console.log(profileTitle.length);
+function profileFontSize() {
+  if (profileTitle.length <= 10) {
+    profileTitle.style.fontSize = Math(profileTitle.style.fontSize * 0.9);
+  };
+}
+
+profileFontSize;*/
 /* Like: like/dislike visual
 
 let likeButton = document.querySelector('.elements__like-button');

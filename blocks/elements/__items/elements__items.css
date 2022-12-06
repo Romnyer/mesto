@@ -18,14 +18,7 @@
 @media (max-width: 649px) {
 
   .elements__items {
-    grid-template-columns: repeat(2, minmax(171px, 297px));
-  }
-}
-
-@media (max-width: 443px) {
-
-  .elements__items {
-    grid-template-columns: minmax(283px, 405px);
+    grid-template-columns: repeat(2, minmax(133px, 297px));
   }
 }
 

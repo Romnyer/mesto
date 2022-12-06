@@ -9,7 +9,17 @@
   overflow: hidden;
 }
 
-@media (max-width: 443px) {
+@media (max-width: 649px) {
+
+  .profile__subtitle {
+    margin-top: 14px;
+
+    font-size: 2.16vw;
+    line-height: 2.62vw;
+  }
+}
+
+@media (max-width: 495px) {
 
   .profile__subtitle {
     margin-top: 14px;
@@ -23,6 +33,6 @@
 @media (max-width: 320px) {
 
   .profile__subtitle {
-    margin-top: 4px;
+    margin-top: 8px;
   }
 }

@@ -21,6 +21,8 @@
 @media (max-width: 320px) {
 
   .profile__edit-button {
+    background: url(../../../images/Edit-button-small.svg) no-repeat center center;
+
     width: 18px;
     height: 18px;
     margin-left: 10px;

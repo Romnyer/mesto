@@ -13,12 +13,12 @@
 @media (max-width: 649px) {
 
   .profile__title {
-    font-size: 6.47vw;
-    line-height: 7.4vw;
+    font-size: 3.7vw;
+    line-height: 5.1vw;
   }
 }
 
-@media (max-width: 443px) {
+@media (max-width: 495px) {
 
   .profile__title {
     font-size: 27px;

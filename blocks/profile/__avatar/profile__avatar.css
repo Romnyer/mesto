@@ -3,7 +3,7 @@
   align-items: center;
 }
 
-@media (max-width: 443px) {
+@media (max-width: 495px) {
 
   .profile__avatar {
     flex-direction: column;
