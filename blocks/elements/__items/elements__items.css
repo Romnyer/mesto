@@ -4,7 +4,7 @@
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(3, minmax(220.25px, 282px));
-  grid-auto-rows: max-content;
+  grid-auto-rows: 1fr;
   gap: 20px 17px;
 }
 

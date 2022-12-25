@@ -6,6 +6,7 @@
   <meta name="description" content="Площадка для публикации фото">
   <meta name="keywords" content="start,project,js">
   <meta name="author" content="Артём">
+  <link rel="icon" type="image/x-con" href="./images/Favicon.jpg">
   <title>Место</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
@@ -41,53 +42,18 @@
       <section class="elements">
         <ul class="elements__items">
 
-          <li>
-            <img class="elements__pic" src="./images/Trip-pic-1.jpg" alt="Шоанинский храм">
-            <div class="elements__item">
-              <h2 class="elements__title">Шоанинский храм</h2>
-              <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
-            </div>
-          </li>
+          <!--Templates-->
 
-          <li>
-            <img class="elements__pic" src="./images/Trip-pic-2.jpg" alt="Долина в Карачаевске">
-            <div class="elements__item">
-              <h2 class="elements__title">Карачаевск</h2>
-              <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
-            </div>
-          </li>
-
-          <li>
-            <img class="elements__pic" src="./images/Trip-pic-3.jpg" alt="Гора Эльбрус">
-            <div class="elements__item">
-              <h2 class="elements__title">Гора Эльбрус</h2>
-              <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
-            </div>
-          </li>
-
-          <li>
-            <img class="elements__pic" src="./images/Trip-pic-4.jpg" alt="Кафе в Пятигорске">
-            <div class="elements__item">
-              <h2 class="elements__title">Пятигорск</h2>
-              <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
-            </div>
-          </li>
-
-          <li>
-            <img class="elements__pic" src="./images/Trip-pic-5.jpg" alt="На горе Бештау">
-            <div class="elements__item">
-              <h2 class="elements__title">Бештау</h2>
-              <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
-            </div>
-          </li>
-
-          <li>
-            <img class="elements__pic" src="./images/Trip-pic-6.jpg" alt="Вид на Малый Тау">
-            <div class="elements__item">
-              <h2 class="elements__title">Малый Тау</h2>
-              <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
-            </div>
-          </li>
+          <template id="elements__template-item">
+            <li class="elements__item">
+              <img class="elements__pic" src="" alt="">
+              <button class="elements__trash-button" type="button" aria-label="Кнопка &#8243;удалить&#8243;"></button>
+              <div class="elements__info">
+                <h2 class="elements__title"></h2>
+                <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
+              </div>
+            </li>
+          </template>
 
         </ul>
       </section>
@@ -99,12 +65,12 @@
       <p class="footer__title">&copy; 2022 Mesto Russia</p>
     </footer>
 
-    <!--Popup-->
+    <!--Profile popup-->
 
-    <div class="popup">
+    <div class="popup popup_button_edit-profile">
       <div class="popup__container">
         <button class="popup__close-button" type="button" aria-label="Кнопка закрытия формы"></button>
-        <form class="popup__form" name="popup__form">
+        <form class="popup__form popup__form_type_profile" name="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input class="popup__field popup__field_type_name" name="popup__field_type_name" type="text" placeholder="Имя">
           <input class="popup__field popup__field_type_info" name="popup__field_type_info" type="text" placeholder="О себе">
@@ -112,7 +78,33 @@
         </form>
       </div>
     </div>
+
+    <!--Element popup-->
+
+    <div class="popup popup_button_add-element">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button" aria-label="Кнопка закрытия формы"></button>
+        <form class="popup__form popup__form_type_add" name="popup__form">
+          <h2 class="popup__title">Новое место</h2>
+          <input class="popup__field popup__field_type_title" name="popup__field_type_name" type="text" placeholder="Название">
+          <input class="popup__field popup__field_type_link" name="popup__field_type_info" type="text" placeholder="Ссылка на картинку">
+          <input class="popup__submit-button" name="popup__submit-button" type="submit" value="Создать">
+        </form>
+      </div>
+    </div>
+
+    <!--Pic popup-->
+
+    <div class="popup popup_element_pic">
+      <div class="popup__container">
+        <img class="popup__pic-large" src="" alt="">
+        <h2 class="popup__pic-title"></h2>
+        <button class="popup__close-button" type="button" aria-label="Кнопка закрытия попапа картинки"></button>
+      </div>
+    </div>
+
   </div>
+
   <script src="./scripts/index.js"></script>
 </body>
 </html>
