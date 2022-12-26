@@ -5,7 +5,15 @@
   display: block;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
+
+  transition-property: opacity;
+  transition-duration: 0.8s;
 }
+
+.elements__pic:hover {
+  opacity: 0.5;
+}
+
 
 @media (max-width: 919px) {
 

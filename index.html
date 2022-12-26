@@ -10,7 +10,7 @@
   <title>Место</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body>
+<body class="body">
   <div class="page">
 
     <!--Header-->
@@ -70,7 +70,7 @@
     <div class="popup popup_button_edit-profile">
       <div class="popup__container">
         <button class="popup__close-button" type="button" aria-label="Кнопка закрытия формы"></button>
-        <form class="popup__form popup__form_type_profile" name="popup__form">
+        <form class="popup__form popup__form_type_profile" name="popup__form_type_profile">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input class="popup__field popup__field_type_name" name="popup__field_type_name" type="text" placeholder="Имя">
           <input class="popup__field popup__field_type_info" name="popup__field_type_info" type="text" placeholder="О себе">
@@ -84,10 +84,10 @@
     <div class="popup popup_button_add-element">
       <div class="popup__container">
         <button class="popup__close-button" type="button" aria-label="Кнопка закрытия формы"></button>
-        <form class="popup__form popup__form_type_add" name="popup__form">
+        <form class="popup__form popup__form_type_add" name="popup__form_type_add">
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__field popup__field_type_title" name="popup__field_type_name" type="text" placeholder="Название">
-          <input class="popup__field popup__field_type_link" name="popup__field_type_info" type="text" placeholder="Ссылка на картинку">
+          <input class="popup__field popup__field_type_title" name="popup__field_type_title" type="text" placeholder="Название">
+          <input class="popup__field popup__field_type_link" name="popup__field_type_link" type="text" placeholder="Ссылка на картинку">
           <input class="popup__submit-button" name="popup__submit-button" type="submit" value="Создать">
         </form>
       </div>
@@ -105,6 +105,6 @@
 
   </div>
 
-  <script src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
