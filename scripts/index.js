@@ -26,15 +26,6 @@ const profileAddButton = document.querySelector('.profile__add-button');
 const elements = document.querySelector('.elements__items');
 const elementTemplateItem = document.querySelector('#elements__template-item').content;
 
-//Validation object
-const validObject = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__field',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__button_disable',
-  inputErrorClass: 'popup__field_type_error'
-};
-
 
 /* Functions */
 
@@ -115,17 +106,11 @@ popups.forEach(popup => {
 
 //Close popups by "esc"
 const closeByEsc = function(evt) {
-  if (evt.key === 'Escape') {
+  const esc = 'Escape';
+  if (evt.key === esc) {
     const popup = document.querySelector('.popup_opened');
     closePopup(popup);
   }
-};
-
-//Clean fields value
-const cleanFields = function() {
-  fields.forEach(item => {
-    item.value = ''
-  })
 };
 
 
@@ -167,7 +152,7 @@ formAdd.addEventListener('submit', function(evt) {
   renderElement(createElement(item));
   closePopup(popupAdd);
 
-  cleanFields();
+  evt.target.reset();
   enableValidation(validObject);
 });
 

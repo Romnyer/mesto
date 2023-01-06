@@ -1,3 +1,4 @@
+//Initial cards info
 const elementItems = [
   {
     title: 'Шоанинский храм',
@@ -29,3 +30,12 @@ const elementItems = [
     link: './images/Trip-pic-6.jpg'
   }
 ];
+
+//Validation object
+const validObject = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__button_disable',
+  inputErrorClass: 'popup__field_type_error'
+};
