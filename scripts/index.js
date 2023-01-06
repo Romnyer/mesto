@@ -1,6 +1,7 @@
 /* Variables */
 
 // Popups variables
+const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_button_edit-profile');
 const popupAdd = document.querySelector('.popup_button_add-element');
 const popupPic = document.querySelector('.popup_element_pic');
@@ -24,7 +25,15 @@ const profileAddButton = document.querySelector('.profile__add-button');
 //Elements variables
 const elements = document.querySelector('.elements__items');
 const elementTemplateItem = document.querySelector('#elements__template-item').content;
-import {elementItems} from './initialElements.js';
+
+//Validation object
+const validObject = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__button_disable',
+  inputErrorClass: 'popup__field_type_error'
+};
 
 
 /* Functions */
@@ -78,11 +87,13 @@ elementItems.reverse().map(item => {
 //Show some popup
 const showPopup = function(element) {
   element.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEsc);
 }
 
 //Close some popup
 const closePopup = function(element) {
   element.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEsc);
 };
 
 //Close popups by button
@@ -92,6 +103,23 @@ popupCloseButtons.forEach(item => {
     closePopup(item.closest('.popup'))
   })
 });
+
+//Close popups by overlay click
+popups.forEach(popup => {
+  popup.addEventListener('click', function(evt) {
+    if (evt.target === popup) {
+      closePopup(popup);
+    }
+  });
+})
+
+//Close popups by "esc"
+const closeByEsc = function(evt) {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+};
 
 //Clean fields value
 const cleanFields = function() {
@@ -107,6 +135,8 @@ profileEditButton.addEventListener('click', function() {
 
   fieldName.value = profileTitle.textContent;
   fieldInfo.value = profileSubTitle.textContent
+
+  enableValidation(validObject);
 });
 
 //Edit profile info
@@ -121,7 +151,8 @@ formProfile.addEventListener('submit', function(evt) {
 
 //Show add-element popup
 profileAddButton.addEventListener('click', function () {
-  showPopup(popupAdd)
+  showPopup(popupAdd);
+  enableValidation(validObject)
 });
 
 //Add new element
@@ -136,7 +167,8 @@ formAdd.addEventListener('submit', function(evt) {
   renderElement(createElement(item));
   closePopup(popupAdd);
 
-  cleanFields()
+  cleanFields();
+  enableValidation(validObject);
 });
 
 

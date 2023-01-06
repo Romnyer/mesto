@@ -8,9 +8,7 @@
   background: rgba(0, 0, 0, 0.5);
 
   opacity: 0;
-  /*transition: opacity 0.8s ease;*/
-  transition-property: opacity;
-  transition-duration: 0.8s;
+  transition: opacity 0.8s ease;
 }
 
 @media (max-width: 320px) {

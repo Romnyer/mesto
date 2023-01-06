@@ -1,4 +1,4 @@
-export const elementItems = [
+const elementItems = [
   {
     title: 'Шоанинский храм',
     link: './images/Trip-pic-1.jpg'
