@@ -119,8 +119,7 @@ profileEditButton.addEventListener('click', function() {
   showPopup(popupProfile);
 
   fieldName.value = profileTitle.textContent;
-  fieldInfo.value = profileSubTitle.textContent
-
+  fieldInfo.value = profileSubTitle.textContent;
   enableValidation(validObject);
 });
 
@@ -137,7 +136,7 @@ formProfile.addEventListener('submit', function(evt) {
 //Show add-element popup
 profileAddButton.addEventListener('click', function () {
   showPopup(popupAdd);
-  enableValidation(validObject)
+  enableValidation(validObject);
 });
 
 //Add new element

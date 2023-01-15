@@ -31,12 +31,14 @@ const hasInvalidInput = function(inputList) {
 }
 
 //Toggle submit button
-const toggleButton = function(inputList, button) {
+const toggleButton = function(formElement, inputList, button) {
   if (hasInvalidInput(inputList)) {
     button.classList.add(validObject.inactiveButtonClass);
+    button.disabled = true;
   }
   else {
     button.classList.remove(validObject.inactiveButtonClass);
+    button.disabled = false;
   }
 }
 
@@ -44,10 +46,10 @@ const toggleButton = function(inputList, button) {
 const setEventListeners = function(formElement) {
   const inputList = Array.from(formElement.querySelectorAll(validObject.inputSelector));
   const button = formElement.querySelector(validObject.submitButtonSelector);
-  toggleButton(inputList, button);
+  toggleButton(formElement, inputList, button);
   inputList.forEach(inputElement => {
     inputElement.addEventListener('input', function() {
-      toggleButton(inputList, button);
+      toggleButton(formElement, inputList, button);
       isValid(formElement, inputElement);
     });
   });

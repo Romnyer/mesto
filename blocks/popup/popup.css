@@ -1,5 +1,7 @@
 .popup {
   visibility: hidden;
+  display: flex;
+  opacity: 0;
   width: 100%;
   position: fixed;
   top: 0;
@@ -7,8 +9,8 @@
   z-index: 1;
   background: rgba(0, 0, 0, 0.5);
 
-  opacity: 0;
-  transition: opacity 0.8s ease;
+  transition-property: opacity, visibility;
+  transition-duration: .5s;
 }
 
 @media (max-width: 320px) {
