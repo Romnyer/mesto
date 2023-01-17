@@ -1,20 +1,17 @@
 /* Variables */
 
+
 // Popups variables
 const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_button_edit-profile');
 const popupAdd = document.querySelector('.popup_button_add-element');
-const popupPic = document.querySelector('.popup_element_pic');
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 const formProfile = document.querySelector('.popup__form_type_profile');
 const formAdd = document.querySelector('.popup__form_type_add');
-const fields = document.querySelectorAll('.popup__field');
 const fieldName = document.querySelector('.popup__field_type_name');
 const fieldInfo = document.querySelector('.popup__field_type_info');
 const fieldTitle = document.querySelector('.popup__field_type_title');
 const fieldLink = document.querySelector('.popup__field_type_link');
-const picLarge = document.querySelector('.popup__pic-large');
-const picTitle = document.querySelector('.popup__pic-title');
 
 //Profile variables
 const profileTitle = document.querySelector('.profile__title');
@@ -27,11 +24,17 @@ const elements = document.querySelector('.elements__items');
 const elementTemplateItem = document.querySelector('#elements__template-item').content;
 
 
+/* Import */
+
+import {elementItems, Card} from './Card.js';
+import {validObject, FormValidation} from './FormValidation.js';
+
+
 /* Functions */
 
 
 //Create element from object info
-const createElement = function({title, link})
+/*const createElement = function({title, link})
 {
   const element = elementTemplateItem.cloneNode(true);
   const elementTrashButton = element.querySelector('.elements__trash-button');
@@ -61,19 +64,13 @@ const createElement = function({title, link})
   });
 
   return element;
-};
+};*/
 
 
 //Render some element
 const renderElement = function(element) {
-  elements.prepend(element)
-};
-
-//Render initial elements
-elementItems.reverse().map(item => {
-  renderElement(createElement(item));
-});
-
+  elements.prepend(element);
+}
 
 //Show some popup
 const showPopup = function(element) {
@@ -85,13 +82,15 @@ const showPopup = function(element) {
 const closePopup = function(element) {
   element.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEsc);
-};
+
+  disableValidation(element);
+}
 
 //Close popups by button
 popupCloseButtons.forEach(item => {
 
   item.addEventListener('click', function() {
-    closePopup(item.closest('.popup'))
+    closePopup(item.closest('.popup'));
   })
 });
 
@@ -101,8 +100,8 @@ popups.forEach(popup => {
     if (evt.target === popup) {
       closePopup(popup);
     }
-  });
-})
+  })
+});
 
 //Close popups by "esc"
 const closeByEsc = function(evt) {
@@ -113,14 +112,19 @@ const closeByEsc = function(evt) {
   }
 };
 
+//Render initial elements
+elementItems.reverse().map(item => {
+  renderElement(new Card(item, elementTemplateItem, showPopup).createElement());
+})
+
 
 //Show edit-profile popup
 profileEditButton.addEventListener('click', function() {
-  showPopup(popupProfile);
-
   fieldName.value = profileTitle.textContent;
   fieldInfo.value = profileSubTitle.textContent;
-  enableValidation(validObject);
+
+  new FormValidation(validObject, formProfile).enableValidation();
+  showPopup(popupProfile);
 });
 
 //Edit profile info
@@ -135,8 +139,8 @@ formProfile.addEventListener('submit', function(evt) {
 
 //Show add-element popup
 profileAddButton.addEventListener('click', function () {
+  new FormValidation(validObject, formAdd).enableValidation();
   showPopup(popupAdd);
-  enableValidation(validObject);
 });
 
 //Add new element
@@ -148,18 +152,16 @@ formAdd.addEventListener('submit', function(evt) {
     link: fieldLink.value
   };
 
-  renderElement(createElement(item));
+  renderElement(new Card(item, elementTemplateItem, showPopup).createElement());
   closePopup(popupAdd);
 
   evt.target.reset();
-  enableValidation(validObject);
 });
 
-
-//Render pic-popup
-const showPic = function(pic) {
-  const elementTitle = pic.closest('.elements__item').querySelector('.elements__title');
-  picLarge.src = pic.src;
-  picLarge.alt = elementTitle.textContent;
-  picTitle.textContent = elementTitle.textContent;
+//Disable validation
+const disableValidation = function(element) {
+  const form = element.closest('.popup');
+  if (form == popupProfile || form == popupAdd) {
+    new FormValidation(validObject, element).disableValidation();
+  }
 }
