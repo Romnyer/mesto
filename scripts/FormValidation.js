@@ -88,16 +88,6 @@ export class FormValidation {
 
   //Validation validObject
   enableValidation() {
-    /*
-    const formList = Array.from(document.querySelectorAll(this.formSelector));
-    formList.forEach((formElement) => {
-      formElement.addEventListener('input', (evt) => {
-        evt.preventDefault();
-      })
-
-      this.setEventListeners(formElement);
-    });
-    */
     this.form.addEventListener('input', (evt) => {
       evt.preventDefault();
     })

@@ -33,40 +33,6 @@ import {validObject, FormValidation} from './FormValidation.js';
 /* Functions */
 
 
-//Create element from object info
-/*const createElement = function({title, link})
-{
-  const element = elementTemplateItem.cloneNode(true);
-  const elementTrashButton = element.querySelector('.elements__trash-button');
-  const elementLikeButton = element.querySelector('.elements__like-button');
-  const elementPic = element.querySelector('.elements__pic');
-
-  //Get info from object
-  element.querySelector('.elements__title').textContent = title;
-  elementPic.src = link;
-  elementPic.alt = title;
-
-  //Delete element by button
-  elementTrashButton.addEventListener('click', () => {
-    const item = elementTrashButton.closest('.elements__item');
-    item.remove();
-  });
-
-  //Like/dislike button
-  elementLikeButton.addEventListener('click', () => {
-    elementLikeButton.classList.toggle('elements__like-button_active')
-  });
-
-  //Open large pic
-  elementPic.addEventListener('click', () => {
-    showPopup(popupPic);
-    showPic(elementPic)
-  });
-
-  return element;
-};*/
-
-
 //Render some element
 const renderElement = function(element) {
   elements.prepend(element);
