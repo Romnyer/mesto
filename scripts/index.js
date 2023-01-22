@@ -21,13 +21,13 @@ const profileAddButton = document.querySelector('.profile__add-button');
 
 //Elements variables
 const elements = document.querySelector('.elements__items');
-const elementTemplateItem = document.querySelector('#elements__template-item').content;
-
+const elementTemplateItem = document.querySelector('#elements__template-item').content.querySelector('.elements__item');
 
 /* Import */
 
-import {elementItems, Card} from './Card.js';
-import {validObject, FormValidation} from './FormValidation.js';
+import {elementItems, validObject} from "./constans.js";
+import {Card} from './Card.js';
+import {FormValidation} from './FormValidation.js';
 
 
 /* Functions */
@@ -35,7 +35,7 @@ import {validObject, FormValidation} from './FormValidation.js';
 
 //Render some element
 const renderElement = function(element) {
-  elements.prepend(element);
+  elements.prepend(new Card(element, elementTemplateItem, showPopup).createElement());
 }
 
 //Show some popup
@@ -48,8 +48,6 @@ const showPopup = function(element) {
 const closePopup = function(element) {
   element.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEsc);
-
-  disableValidation(element);
 }
 
 //Close popups by button
@@ -78,18 +76,39 @@ const closeByEsc = function(evt) {
   }
 };
 
+//Enable validation
+const enableValidation = function(form) {
+  new FormValidation(validObject, form).enableValidation();
+}
+
+//Disable validation button
+const disableValidButton = function(form) {
+  if (!popupProfile.classList.contains('popup_opened') || !popupAdd.classList.contains('popup_opened')) {
+    new FormValidation(validObject, form).disableButton();
+  };
+}
+
+//Remove validation errors after popup open
+const removeValidErrors = function(form) {
+  new FormValidation(validObject, form).removeErrors();
+}
+
+
+/* Actions */
+
+
 //Render initial elements
 elementItems.reverse().map(item => {
-  renderElement(new Card(item, elementTemplateItem, showPopup).createElement());
+  renderElement(item);
 })
-
 
 //Show edit-profile popup
 profileEditButton.addEventListener('click', function() {
   fieldName.value = profileTitle.textContent;
   fieldInfo.value = profileSubTitle.textContent;
 
-  new FormValidation(validObject, formProfile).enableValidation();
+  new FormValidation(validObject, popupProfile).toggleButton();
+  removeValidErrors(popupProfile);
   showPopup(popupProfile);
 });
 
@@ -102,10 +121,9 @@ formProfile.addEventListener('submit', function(evt) {
   closePopup(popupProfile);
 });
 
-
 //Show add-element popup
 profileAddButton.addEventListener('click', function () {
-  new FormValidation(validObject, formAdd).enableValidation();
+  removeValidErrors(popupAdd);
   showPopup(popupAdd);
 });
 
@@ -118,16 +136,12 @@ formAdd.addEventListener('submit', function(evt) {
     link: fieldLink.value
   };
 
-  renderElement(new Card(item, elementTemplateItem, showPopup).createElement());
+  renderElement(item);
   closePopup(popupAdd);
 
   evt.target.reset();
 });
 
-//Disable validation
-const disableValidation = function(element) {
-  const form = element.closest('.popup');
-  if (form == popupProfile || form == popupAdd) {
-    new FormValidation(validObject, element).disableValidation();
-  }
-}
+//Start validation
+enableValidation(formProfile);
+enableValidation(formAdd);
