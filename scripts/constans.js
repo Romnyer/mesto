@@ -1,5 +1,10 @@
+//Large pic popup
+export const popupPic = document.querySelector('.popup_element_pic');
+export const picLarge = document.querySelector('.popup__pic-large');
+export const picTitle = document.querySelector('.popup__pic-title');
+
 //Initial cards info
-const elementItems = [
+export const elementItems = [
   {
     title: 'Шоанинский храм',
     link: './images/Trip-pic-1.jpg'
@@ -32,7 +37,7 @@ const elementItems = [
 ];
 
 //Validation object
-const validObject = {
+export const validObject = {
   formSelector: '.popup__form',
   inputSelector: '.popup__field',
   submitButtonSelector: '.popup__submit-button',
