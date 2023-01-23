@@ -23,11 +23,14 @@ const profileAddButton = document.querySelector('.profile__add-button');
 const elements = document.querySelector('.elements__items');
 const elementTemplateItem = document.querySelector('#elements__template-item').content.querySelector('.elements__item');
 
-/* Import */
-
+// Import
 import {elementItems, validObject} from "./constans.js";
 import {Card} from './Card.js';
 import {FormValidation} from './FormValidation.js';
+
+//Form clases
+const profileFormValidation = new FormValidation(validObject, formProfile);
+const addFormValidation = new FormValidation(validObject, formAdd);
 
 
 /* Functions */
@@ -42,6 +45,11 @@ const renderElement = function(element) {
 const showPopup = function(element) {
   element.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEsc);
+}
+
+//Change popup opacity to 0.5
+const changePopupOpacity = function(element) {
+  element.classList.add('popup_form');
 }
 
 //Close some popup
@@ -76,23 +84,6 @@ const closeByEsc = function(evt) {
   }
 };
 
-//Enable validation
-const enableValidation = function(form) {
-  new FormValidation(validObject, form).enableValidation();
-}
-
-//Disable validation button
-const disableValidButton = function(form) {
-  if (!popupProfile.classList.contains('popup_opened') || !popupAdd.classList.contains('popup_opened')) {
-    new FormValidation(validObject, form).disableButton();
-  };
-}
-
-//Remove validation errors after popup open
-const removeValidErrors = function(form) {
-  new FormValidation(validObject, form).removeErrors();
-}
-
 
 /* Actions */
 
@@ -107,8 +98,9 @@ profileEditButton.addEventListener('click', function() {
   fieldName.value = profileTitle.textContent;
   fieldInfo.value = profileSubTitle.textContent;
 
-  new FormValidation(validObject, popupProfile).toggleButton();
-  removeValidErrors(popupProfile);
+  profileFormValidation.toggleButton();
+  profileFormValidation.removeErrors();
+  changePopupOpacity(popupProfile);
   showPopup(popupProfile);
 });
 
@@ -123,7 +115,8 @@ formProfile.addEventListener('submit', function(evt) {
 
 //Show add-element popup
 profileAddButton.addEventListener('click', function () {
-  removeValidErrors(popupAdd);
+  addFormValidation.removeErrors();
+  changePopupOpacity(popupAdd);
   showPopup(popupAdd);
 });
 
@@ -143,5 +136,5 @@ formAdd.addEventListener('submit', function(evt) {
 });
 
 //Start validation
-enableValidation(formProfile);
-enableValidation(formAdd);
+profileFormValidation.enableValidation();
+addFormValidation.enableValidation();
