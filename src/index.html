@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Площадка для публикации фото">
-  <meta name="keywords" content="start,project,js">
+  <meta name="description" content="Площадка для публикации изображений">
+  <meta name="keywords" content="js, OOP, Webpack">
   <meta name="author" content="Артём">
-  <link rel="icon" type="image/x-con" href="./images/Favicon.jpg">
+  <link rel="icon" type="image/x-con" href="<%=require('./images/Favicon.jpg')%>">
   <title>Место</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
   <div class="page">
@@ -16,7 +15,7 @@
     <!--Header-->
 
     <header class="header">
-      <img class="header__logo" src="./images/Logo.svg" alt="Логотип">
+      <img class="header__logo" src="<%=require('./images/Logo.svg')%>" alt="Логотип">
     </header>
 
     <!--Main-->
@@ -27,7 +26,7 @@
 
       <section class="profile">
         <div class="profile__avatar">
-          <img class="profile__pic" src="./images/Avatar.jpg" alt="Аватар">
+          <img class="profile__pic" src="<%=require('./images/Avatar.jpg')%>" alt="Аватар">
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <p class="profile__subtitle">Исследователь океана</p>
@@ -52,7 +51,7 @@
       <p class="footer__title">&copy; 2022 Mesto Russia</p>
     </footer>
 
-    <!--Template-->
+    <!--Element template-->
 
     <template id="elements__template-item">
       <li class="elements__item">
@@ -73,11 +72,11 @@
         <form class="popup__form popup__form_type_profile" name="popup__form_type_profile" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
           <label class="popup__label">
-            <input class="popup__field popup__field_type_name" id="popup-field-name" name="popup__field_type_name" type="text" placeholder="Имя" minlength="2" maxlength="40" required>
+            <input class="popup__field popup__field_type_name" id="popup-field-name" name="fieldName" type="text" placeholder="Имя" minlength="2" maxlength="40" required>11
             <span class="popup__field-error popup-field-name-error"></span>
           </label>
           <label class="popup__label">
-            <input class="popup__field popup__field_type_info" id="popup-field-info" name="popup__field_type_info" type="text" placeholder="О себе" minlength="2" maxlength="200" required>
+            <input class="popup__field popup__field_type_info" id="popup-field-info" name="fieldInfo" type="text" placeholder="О себе" minlength="2" maxlength="200" required>
             <span class="popup__field-error popup-field-info-error"></span>
           </label>
           <input class="popup__submit-button" name="popup__submit-button" type="submit" value="Сохранить">
@@ -85,7 +84,7 @@
       </div>
     </div>
 
-    <!--Element popup-->
+    <!--Add element popup-->
 
     <div class="popup popup_button_add-element">
       <div class="popup__container">
@@ -93,11 +92,11 @@
         <form class="popup__form popup__form_type_add" name="popup__form_type_add" novalidate>
           <h2 class="popup__title">Новое место</h2>
           <label class="popup__label">
-            <input class="popup__field popup__field_type_title" id="popup-field-title" name="popup__field_type_title" type="text" placeholder="Название" minlength="2" maxlength="30" required>
+            <input class="popup__field popup__field_type_title" id="popup-field-title" name="fieldTitle" type="text" placeholder="Название" minlength="2" maxlength="30" required>
             <span class="popup__field-error popup-field-title-error"></span>
           </label>
           <label class="popup__label">
-            <input class="popup__field popup__field_type_link" id="popup-field-link" name="popup__field_type_link" type="url" placeholder="Ссылка на картинку" required>
+            <input class="popup__field popup__field_type_link" id="popup-field-link" name="fieldLink" type="url" placeholder="Ссылка на картинку" required>
             <span class="popup__field-error popup-field-link-error"></span>
           </label>
           <input class="popup__submit-button" name="popup__submit-button" type="submit" value="Создать">
@@ -116,6 +115,5 @@
     </div>
 
   </div>
-  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

@@ -23,6 +23,7 @@
 @import url(../blocks/popup/__field/_type/popup__field_type_error.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
 @import url(../blocks/popup/__button/popup__button_disable.css);
+@import url(../blocks/popup/_element_pic/popup_element_pic.css);
 @import url(../blocks/popup/__pic-large/popup__pic-large.css);
 @import url(../blocks/popup/__pic-title/popup__pic-title.css);
 

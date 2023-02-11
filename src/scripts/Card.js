@@ -1,14 +1,11 @@
-import { popupPic, picLarge, picTitle } from "./constans.js"
+import {picLarge, picTitle} from "./constants.js"
 
 export class Card {
-  constructor(item, template, showPopup) {
-    this._template = template;
+  constructor(item, template, handleCardClick) {
     this._title = item.title;
     this._link = item.link;
-    this._showPopup = showPopup;
-    this.popupPic = popupPic;
-    this.picLarge = picLarge;
-    this.picTitle = picTitle;
+    this._template = template;
+    this._handleCardClick = handleCardClick;
   }
 
   _createElementTemplate() {
@@ -34,17 +31,17 @@ export class Card {
     this._elementLikeButton.classList.toggle('elements__like-button_active');
   }
 
-  //Open large pic
+  //Open pic-popup
   _openLargePic() {
-    this._showPic();
-    this._showPopup(this.popupPic);
+    //this._showPic();
+    this._handleCardClick({title: this._title, link: this._link});
   }
 
   //Render pic-popup
   _showPic() {
-    this.picLarge.src = this._elementPic.src;
-    this.picLarge.alt = this._title;
-    this.picTitle.textContent = this._title;
+    picLarge.src = this._elementPic.src;
+    picLarge.alt = this._title;
+    picTitle.textContent = this._title;
   }
 
   _setEventListeners() {
