@@ -1,5 +1,3 @@
-import {picLarge, picTitle} from "./constants.js"
-
 export class Card {
   constructor(item, template, handleCardClick) {
     this._title = item.title;
@@ -9,7 +7,7 @@ export class Card {
   }
 
   _createElementTemplate() {
-    const element = this._template.cloneNode(true);
+    const element = document.querySelector(this._template).content.querySelector('.elements__item').cloneNode(true);
     return element;
   }
 
@@ -22,8 +20,15 @@ export class Card {
 
   //Delete element by button
   _deleteElementByButton() {
-    this._element.remove();
-    this._element = null;
+    this._element.classList.add('elements__item_delete');
+    //Timeout for transition effect
+    setTimeout(() => {
+      this._element.remove();
+      this._elementTrashButton = null;
+      this._elementLikeButton = null;
+      this._elementPic = null;
+      this._element = null;
+    },500);
   }
 
   //Like/dislike button
@@ -33,15 +38,7 @@ export class Card {
 
   //Open pic-popup
   _openLargePic() {
-    //this._showPic();
     this._handleCardClick({title: this._title, link: this._link});
-  }
-
-  //Render pic-popup
-  _showPic() {
-    picLarge.src = this._elementPic.src;
-    picLarge.alt = this._title;
-    picTitle.textContent = this._title;
   }
 
   _setEventListeners() {

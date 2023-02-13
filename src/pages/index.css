@@ -52,6 +52,7 @@
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__items/elements__items.css);
 @import url(../blocks/elements/__item/elements__item.css);
+@import url(../blocks/elements/__item/_delete/elements__item_delete.css);
 @import url(../blocks/elements/__pic/elements__pic.css);
 @import url(../blocks/elements/__trash-button/elements__trash-button.css);
 @import url(../blocks/elements/__info/elements__info.css);
