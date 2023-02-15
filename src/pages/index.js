@@ -44,18 +44,18 @@ const setProfileInfo = () => {
 }
 
 //Render card
-const renderCard = (item, selector) => {
-  const newCard = new Card(item, selector, handleCardClick);
+const renderCard = (item) => {
+  const newCard = new Card(item, elementTemplateItem, handleCardClick);
   cardsSection.addItem(newCard.createElement());
 }
 
 //Create card
 const cardsSection = new Section({
   items: elementItems,
-  renderer: (item, selector) => {
-    renderCard(item, selector);
+  renderer: (item) => {
+    renderCard(item);
   }
-}, elementTemplateItem, elements);
+}, elements);
 
 //Edit-profile popup
 const popupProfileForm = new PopupWithForm(
@@ -72,7 +72,7 @@ const popupAddForm = new PopupWithForm(
     renderCard({
       title: fieldValues.fieldTitle,
       link: fieldValues.fieldLink
-    }, elementTemplateItem)
+    })
   }}
 );
 
