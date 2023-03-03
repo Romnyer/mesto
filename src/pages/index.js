@@ -17,7 +17,7 @@ import {PopupWithForm} from '../components/PopupWithForm.js';
 import {UserInfo} from '../components/UserInfo.js';
 import {PopupDeletePic} from '../components/PopupDeletePic.js';
 import {PopupAvatarUpload} from '../components/PopupAvatarUpload.js';
-import {Api} from '../utils/Api.js';
+import {Api} from '../components/Api.js';
 
 
 /* Clases */
@@ -50,8 +50,9 @@ const handleCardClick = (item) => {
 
 //Show popup for delete
 const handleCardDelete = (card) => {
-  popupDeletePic.open(() => {
-    popupDeletePic.loading()
+  popupDeletePic.open();
+  popupDeletePic.setSubmitAction(() => {
+    popupDeletePic.loading();
     api.deleteCard(card._cardId)
       .then(() => {
         card._deleteElementByButton();
@@ -62,7 +63,7 @@ const handleCardDelete = (card) => {
           setTimeout(() => {
             popupDeletePic.endLoading();
           },500)
-        })
+        });
   });
 }
 
@@ -222,6 +223,7 @@ popupWithImage.setEventListeners();
 popupProfileForm.setEventListeners();
 popupAddForm.setEventListeners();
 popupAvatarUpload.setEventListeners();
+popupDeletePic.setEventListeners();
 
 /* Validation popups with form */
 

@@ -72,15 +72,12 @@ export class Card {
   //Delete element by button
   _deleteElementByButton() {
     this._element.classList.add('elements__item_delete');
-    //Timeout for transition effect
-    setTimeout(() => {
-      this._element.remove();
-      this._elementTrashButton = null;
-      this._elementLikeButton = null;
-      this._elementPic = null;
-      this._elementLikeNumber = null;
-      this._element = null;
-    },500);
+    this._element.remove();
+    this._elementTrashButton = null;
+    this._elementLikeButton = null;
+    this._elementPic = null;
+    this._elementLikeNumber = null;
+    this._element = null;
   }
 
   //Open pic-popup
