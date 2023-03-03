@@ -26,10 +26,13 @@
 
       <section class="profile">
         <div class="profile__avatar">
-          <img class="profile__pic" src="<%=require('./images/Avatar.jpg')%>" alt="Аватар">
+          <div class="profile__container">
+            <img src="<%=require('./images/Avatar.jpg')%>" alt="Аватар" class="profile__pic">
+            <div class="profile__edit-pic"></div>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <p class="profile__subtitle">Исследователь океана</p>
+            <h1 class="profile__title"></h1>
+            <p class="profile__subtitle"></p>
             <button class="profile__edit-button" type="button" aria-label="Кнопка редактирования профиля"></button>
           </div>
         </div>
@@ -59,7 +62,10 @@
         <button class="elements__trash-button" type="button" aria-label="Кнопка &#8243;удалить&#8243;"></button>
         <div class="elements__info">
           <h2 class="elements__title"></h2>
-          <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
+          <div class="elements__likes">
+            <button class="elements__like-button" type="button" aria-label="Кнопка &#8243;мне нравится&#8243;"></button>
+            <p class="elements__like-number">0</p>
+          </div>
         </div>
       </li>
     </template>
@@ -111,6 +117,34 @@
         <img class="popup__pic-large">
         <h2 class="popup__pic-title"></h2>
         <button class="popup__close-button" type="button" aria-label="Кнопка закрытия попапа картинки"></button>
+      </div>
+    </div>
+
+    <!--Delete popup-->
+
+    <div class="popup popup_delete_pic">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button" aria-label="Кнопка закрытия попапа удаления картинки"></button>
+        <form class="popup__form popup__form_type_delete" name="popup__form_type_delete" novalidate>
+          <h2 class="popup__title popup__title_for_delete">Вы уверены?</h2>
+          <input class="popup__submit-button popup__submit-button_for_delete" name="popup__submit-button" type="submit" value="Да">
+        </form>
+      </div>
+    </div>
+
+    <!--Upload popup-->
+
+    <div class="popup popup_avatar_upload">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button" aria-label="Кнопка закрытия попапа обновления аватара"></button>
+        <form class="popup__form popup__form_type_upload" name="popup__form_type_upload" novalidate>
+          <h2 class="popup__title popup__title_for_upload">Обновить аватар</h2>
+          <label class="popup__label popup__label_type_upload">
+            <input class="popup__field popup__field_type_upload" id="popup-field-upload" name="fieldUpload" type="url" placeholder="Ссылка на картинку" required>
+            <span class="popup__field-error popup-field-upload-error"></span>
+          </label>
+          <input class="popup__submit-button popup__submit-button_for_upload" name="popup__submit-button" type="submit" value="Сохранить">
+        </form>
       </div>
     </div>
 

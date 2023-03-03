@@ -8,7 +8,7 @@
 
   cursor: pointer;
   transition-property: opacity;
-  transition-duration: 0.8s;
+  transition-duration: 1s;
 }
 
 .elements__like-button:hover {

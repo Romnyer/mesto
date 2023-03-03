@@ -3,62 +3,27 @@ export const popupVars = {
   popupProfile: '.popup_button_edit-profile',
   popupAdd: '.popup_button_add-element',
   popupPic: '.popup_element_pic',
-  formProfile: document.querySelector('.popup__form_type_profile'),
-  formAdd: document.querySelector('.popup__form_type_add'),
+  formProfile: '.popup__form_type_profile',
+  formAdd: '.popup__form_type_add',
   picLarge: '.popup__pic-large',
-  picTitle: '.popup__pic-title'
+  picTitle: '.popup__pic-title',
+  popupDeletePic: '.popup_delete_pic',
+  popupAvatarUpload: '.popup_avatar_upload',
+  avatarUploadForm: '.popup__form_type_upload'
 };
 export const profileVars = {
   profileTitle: '.profile__title',
   profileSubTitle: '.profile__subtitle',
   profileEditButton: document.querySelector('.profile__edit-button'),
-  profileAddButton: document.querySelector('.profile__add-button')
+  profileAddButton: document.querySelector('.profile__add-button'),
+  profileAvatarPic: '.profile__pic',
+  profileAvatarContainer: document.querySelector('.profile__container')
 };
 export const elements = '.elements__items';
 
 //For classes
 export const elementTemplateItem = '#elements__template-item';
 export const esc = 'Escape';
-
-//Initial cards info
-import temple from '../images/Trip-pic-1.jpg';
-import town from '../images/Trip-pic-2.jpg';
-import mountain from '../images/Trip-pic-3.jpg';
-import city from '../images/Trip-pic-4.jpg';
-import peak from '../images/Trip-pic-5.jpg';
-import junPeak from '../images/Trip-pic-6.jpg';
-
-export const elementItems = [
-  {
-    title: 'Шоанинский храм',
-    link: temple
-  },
-
-  {
-    title: 'Карачаевск',
-    link: town
-  },
-
-  {
-    title: 'Гора Эльбрус',
-    link: mountain
-  },
-
-  {
-    title: 'Пятигорск',
-    link: city
-  },
-
-  {
-    title: 'Бештау',
-    link: peak
-  },
-
-  {
-    title: 'Малый Тау',
-    link: junPeak
-  }
-];
 
 //Validation object
 export const validObject = {

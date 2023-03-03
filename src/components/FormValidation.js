@@ -1,12 +1,12 @@
 export class FormValidation {
   constructor(validObject, form) {
-    this._form = form;
+    this._form = document.querySelector(form);
     this._inputSelector = validObject.inputSelector;
     this._submitButtonSelector = validObject.submitButtonSelector;
     this._inactiveButtonClass = validObject.inactiveButtonClass;
     this._inputErrorClass = validObject.inputErrorClass;
-    this._inputList = Array.from(form.querySelectorAll(this._inputSelector));
-    this._button = form.querySelector(this._submitButtonSelector);
+    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
+    this._button = this._form.querySelector(this._submitButtonSelector);
   }
 
   //Show field error

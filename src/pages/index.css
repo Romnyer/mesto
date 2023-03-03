@@ -15,13 +15,17 @@
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/_form/popup_form.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__title/_for/popup__title_for_delete.css);
 @import url(../blocks/popup/__field/popup__field.css);
 @import url(../blocks/popup/__label/popup__label.css);
+@import url(../blocks/popup/__label/_type/popup__label_type_upload.css);
 @import url(../blocks/popup/__field-error/popup__field-error.css);
 @import url(../blocks/popup/__field/_type/popup__field_type_error.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
+@import url(../blocks/popup/__submit-button/_for/popup__submit-button_for_delete.css);
+@import url(../blocks/popup/__submit-button/_for/popup__submit-button_for_upload.css);
+@import url(../blocks/popup/__title/_for/popup__title_for_upload.css);
 @import url(../blocks/popup/__button/popup__button_disable.css);
 @import url(../blocks/popup/_element_pic/popup_element_pic.css);
 @import url(../blocks/popup/__pic-large/popup__pic-large.css);
@@ -41,6 +45,8 @@
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__pic/profile__pic.css);
+@import url(../blocks/profile/__container/profile__container.css);
+@import url(../blocks/profile/__edit-pic/profile__edit-pic.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
@@ -57,6 +63,8 @@
 @import url(../blocks/elements/__trash-button/elements__trash-button.css);
 @import url(../blocks/elements/__info/elements__info.css);
 @import url(../blocks/elements/__title/elements__title.css);
+@import url(../blocks/elements/__likes/elements__likes.css);
+@import url(../blocks/elements/__like-number/elements__like-number.css);
 @import url(../blocks/elements/__like-button/elements__like-button.css);
 @import url(../blocks/elements/__like-button/_active/elements__like-button_active.css);
 

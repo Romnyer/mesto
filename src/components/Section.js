@@ -1,13 +1,12 @@
 export class Section {
-  constructor({items, renderer}, elementsSelector) {
-    this._items = items;
+  constructor(renderer, elementsSelector) {
     this._renderer = renderer;
     this._elements = document.querySelector(elementsSelector);
   }
 
   //Render initial cards
-  renderItems() {
-    this._items.reverse().map((item) => {
+  renderItems(items) {
+    items.reverse().map((item) => {
       this._renderer(item);
     });
   }
