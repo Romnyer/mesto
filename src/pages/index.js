@@ -16,7 +16,6 @@ import {PopupWithImage} from '../components/PopupWithImage.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
 import {UserInfo} from '../components/UserInfo.js';
 import {PopupDeletePic} from '../components/PopupDeletePic.js';
-import {PopupAvatarUpload} from '../components/PopupAvatarUpload.js';
 import {Api} from '../components/Api.js';
 
 
@@ -27,7 +26,7 @@ const profileFormValidation = new FormValidation(validObject, popupVars.formProf
 const addFormValidation = new FormValidation(validObject, popupVars.formAdd);
 const profileAvatarFormValidation = new FormValidation(validObject, popupVars.avatarUploadForm);
 const popupWithImage = new PopupWithImage(popupVars.popupPic, popupVars.picLarge, popupVars.picTitle);
-const userInfo = new UserInfo(profileVars.profileTitle, profileVars.profileSubTitle);
+const userInfo = new UserInfo(profileVars.profileTitle, profileVars.profileSubTitle, profileVars.profileAvatarPic);
 const popupDeletePic = new PopupDeletePic(popupVars.popupDeletePic, 'Удаление...');
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-60',
@@ -48,72 +47,41 @@ const handleCardClick = (item) => {
   popupWithImage.open(item);
 }
 
-//Show popup for delete
-const handleCardDelete = (card) => {
-  popupDeletePic.open();
-  popupDeletePic.setSubmitAction(() => {
-    popupDeletePic.loading();
-    api.deleteCard(card._cardId)
-      .then(() => {
-        card._deleteElementByButton();
-      })
-      .catch(err => console.log(err))
-        .finally(() => {
-          popupDeletePic.close();
-          setTimeout(() => {
-            popupDeletePic.endLoading();
-          },500)
-        });
-  });
-}
-
-//Set profile info in form inputs
-const setProfileInfo = () => {
-  popupProfileForm._getInputValues();
-  const profileInfo = userInfo.getUserInfo();
-  const profileFields = popupProfileForm._fields;
-
-  profileFields.forEach((field) => {
-    field.value = profileInfo[field.name]
-  })
-}
-
 //Show edit-profile popup
 profileVars.profileEditButton.addEventListener('click', () => {
-  setProfileInfo();
+  popupProfileForm.setInputValues(userInfo.getUserInfo());
 
   profileFormValidation.toggleButton();
-  profileFormValidation.removeErrors();
 
   popupProfileForm.open();
 });
 
 //Show add-card popup
 profileVars.profileAddButton.addEventListener('click', () => {
-  addFormValidation.removeErrors();
   popupAddForm.open();
 });
 
 //Show edit avatar popup
 profileVars.profileAvatarContainer.addEventListener('click', () => {
-  profileAvatarFormValidation.removeErrors();
   popupAvatarUpload.open();
 })
 
+//Timeout for visual effect
+//Without timeout user will see effect of endLoading() before popup closed
+const timeoutClosing = (popup) => {
+  setTimeout(() => {
+    popup.endLoading();
+  },500)
+}
+
 /* API */
 
-//Set user's avatar, name and about
-api.getProfileInfo()
-  .then(res => {
-    popupAvatarUpload.setAvatar(res.avatar);
-    userInfo.setUserInfo(res.name, res.about, res._id);
-  })
-  .catch(err => console.log(err));
-
-  //Render initial cards
-api.getCards()
-  .then(res => {
-    cardsSection.renderItems(res);
+Promise.all([api.getProfileInfo(), api.getCards()])
+  .then(([userData, cards]) => {
+    //Set user's avatar, name, about, id
+    userInfo.setUserInfo(userData);
+    //Render initial cards
+    cardsSection.renderItems(cards);
   })
   .catch(err => console.log(err));
 
@@ -124,14 +92,13 @@ const submitProfile = (newName, newAbout) => {
   popupProfileForm.loading();
   api.changeUserInfo(newName, newAbout)
     .then(res => {
-      userInfo.setUserInfo(res.name, res.about);
+      userInfo.setProfileInfo(res.name, res.about);
+      popupProfileForm.close();
+      timeoutClosing(popupProfileForm);
     })
     .catch(err => console.log(err))
       .finally(() => {
-        popupProfileForm.close();
-        setTimeout(() => {
-          popupProfileForm.endLoading();
-        },500)
+        timeoutClosing(popupProfileForm);
       })
 }
 
@@ -151,28 +118,62 @@ const submitAvatar = (src) => {
   popupAvatarUpload.loading();
   api.changeAvatar(src)
     .then(res => {
-      popupAvatarUpload.setAvatar(res.avatar);
+      userInfo.setAvatar(res.avatar);
+      popupAvatarUpload.close();
+      timeoutClosing(popupAvatarUpload);
     })
     .catch(err => console.log(err))
       .finally(() => {
-        popupAvatarUpload.close();
-        setTimeout(() => {
-          popupAvatarUpload.endLoading();
-        },500)
+        timeoutClosing(popupAvatarUpload);
       })
 }
 
 //Change avatar
-const popupAvatarUpload = new PopupAvatarUpload(
+const popupAvatarUpload = new PopupWithForm(
   popupVars.popupAvatarUpload,
-  profileVars.profileAvatarPic,
-  {handleAvatarChange: (fieldUpload) => {
-    submitAvatar(fieldUpload);
+  {submitForm: (fieldValues) => {
+    submitAvatar(fieldValues.fieldUpload);
   }},
   'Сохранение...'
 );
 
 /* CARD */
+
+//Delete card
+const handleCardDelete = (card) => {
+  popupDeletePic.open();
+  popupDeletePic.setSubmitAction(() => {
+    popupDeletePic.loading();
+    api.deleteCard(card.cardId)
+      .then(() => {
+        card.deleteElementByButton();
+        popupDeletePic.close();
+        timeoutClosing(popupDeletePic);
+      })
+      .catch(err => console.log(err))
+        .finally(() => {
+          timeoutClosing(popupDeletePic);
+        });
+  });
+}
+
+const likeCard = (card) => {
+  if(!card.isLiked) {
+    api.likeCard(card.cardId)
+    .then(res => {
+      card.likeCard(res.likes.length);
+    })
+    .catch(err => console.log(err));
+  }
+
+  else {
+    api.dislikeCard(card.cardId)
+    .then(res => {
+      card.dislikeCard(res.likes.length);
+    })
+    .catch(err => console.log(err));
+  }
+}
 
 //Render card
 const renderCard = (item) => {
@@ -181,9 +182,8 @@ const renderCard = (item) => {
     elementTemplateItem,
     handleCardClick,
     handleCardDelete,
-    userInfo._id,
-    () => {api.likeCard(item._id)},
-    () => {api.dislikeCard(item._id)}
+    userInfo.id,
+    likeCard
   );
   const newCard = card.createElement();
   cardsSection.addItem(newCard);
@@ -198,13 +198,12 @@ const submitCard = (newName, newAbout) => {
   api.addCard(newName, newAbout)
     .then(res => {
       renderCard(res);
+      popupAddForm.close();
+      timeoutClosing(popupAddForm);
     })
     .catch(err => console.log(err))
       .finally(() => {
-        popupAddForm.close();
-        setTimeout(() => {
-          popupAddForm.endLoading();
-        },500)
+        timeoutClosing(popupAddForm);
       })
 }
 

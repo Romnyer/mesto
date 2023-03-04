@@ -1,21 +1,32 @@
 export class UserInfo {
-  constructor(nameSelector, infoSelector) {
-    this._name = document.querySelector(nameSelector);
-    this._info = document.querySelector(infoSelector);
+  constructor(nameSelector, infoSelector, avatarSelector) {
+    this.name = document.querySelector(nameSelector);
+    this.info = document.querySelector(infoSelector);
+    this.avatar = document.querySelector(avatarSelector);
   }
 
   getUserInfo() {
     const userInfo = {
       //Name of property = name of input in form edit profile
-      fieldName: this._name.textContent,
-      fieldInfo: this._info.textContent
+      fieldName: this.name.textContent,
+      fieldInfo: this.info.textContent
     };
     return userInfo;
   }
 
-  setUserInfo(newName, newInfo, id) {
-    this._name.textContent = newName;
-    this._info.textContent = newInfo;
-    this._id = id;
+  setUserInfo({name, about, avatar, _id}) {
+    this.name.textContent = name;
+    this.info.textContent = about;
+    this.avatar.src = avatar;
+    this.id = _id;
+  }
+
+  setProfileInfo(name, about) {
+    this.name.textContent = name;
+    this.info.textContent = about;
+  }
+
+  setAvatar(avatar) {
+    this.avatar.src = avatar;
   }
 }

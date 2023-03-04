@@ -21,6 +21,12 @@ export class PopupWithForm extends Popup {
     return fieldValues;
   }
 
+  setInputValues(data) {
+    this._fields.forEach((field) => {
+      field.value = data[field.name];
+    });
+  }
+
   close() {
     super.close();
     //Timeout is for saving your text in input's value while popup is closing

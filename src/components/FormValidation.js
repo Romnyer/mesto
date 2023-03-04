@@ -74,6 +74,7 @@ export class FormValidation {
     this.toggleButton();
     this._form.addEventListener('reset', () => {
       this._disableButtonAfterReset();
+      this.removeErrors();
     });
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {

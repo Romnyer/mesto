@@ -6,12 +6,12 @@ export class Card {
     this._handleCardClick = handleCardClick;
     this._handleCardDelete = handleCardDelete;
     this._likeNumber = item.likes;
-    this._likeCard = likeCard;
+    this._handleLikeCard = likeCard;
     this._dislikeCard = dislikeCard;
     this._ownerId = item.owner._id;
-    this._cardId = item._id;
+    this.cardId = item._id;
     this._myId = myId;
-    this._isLiked = false;
+    this.isLiked = false;
   }
 
   _createElementTemplate() {
@@ -30,47 +30,32 @@ export class Card {
       this._elementLikeNumber.textContent = this._likeNumber.length;
     }
     //Check my like
-    if (this.isLiked()) {
+    if (this.isCardLiked()) {
       this._elementLikeButton.classList.toggle('elements__like-button_active');
-      this._isLiked = true;
+      this.isLiked = true;
     }
   }
 
-  isLiked() {
+  isCardLiked() {
     return this._likeNumber.some(like => {
       return like._id === this._myId;
     })
   }
 
-  //Like/dislike button
-  _likeButton() {
-    if (!this._isLiked) {
-      this._elementLikeButton.classList.add('elements__like-button_active');
-      this._elementLikeNumber.textContent = Number(this._elementLikeNumber.textContent) + 1;
+  likeCard(likesNubmer) {
+    this._elementLikeButton.classList.add('elements__like-button_active');
+    this._elementLikeNumber.textContent = likesNubmer;
+    this.isLiked = true;
+  }
 
-      if (this._elementLikeNumber.textContent > 0) {
-        this._elementLikeNumber.classList.add('elements__like-number_active');
-      }
-
-      this._isLiked = true;
-      this._likeCard();
-    }
-
-    else {
-      this._elementLikeButton.classList.remove('elements__like-button_active');
-      this._elementLikeNumber.textContent = Number(this._elementLikeNumber.textContent) - 1;
-
-      if (this._elementLikeNumber.textContent < 1) {
-        this._elementLikeNumber.classList.remove('elements__like-number_active');
-      }
-
-      this._isLiked = false;
-      this._dislikeCard();
-    }
+  dislikeCard(likesNubmer) {
+    this._elementLikeButton.classList.remove('elements__like-button_active');
+    this._elementLikeNumber.textContent = likesNubmer;
+    this.isLiked = false;
   }
 
   //Delete element by button
-  _deleteElementByButton() {
+  deleteElementByButton() {
     this._element.classList.add('elements__item_delete');
     this._element.remove();
     this._elementTrashButton = null;
@@ -90,7 +75,7 @@ export class Card {
       this._handleCardDelete(this);
     });
     this._elementLikeButton.addEventListener('click', () => {
-      this._likeButton();
+      this._handleLikeCard(this);
     });
     this._elementPic.addEventListener('click', () => {
       this._openLargePic();
