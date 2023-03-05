@@ -94,12 +94,11 @@ const submitProfile = (newName, newAbout) => {
     .then(res => {
       userInfo.setProfileInfo(res.name, res.about);
       popupProfileForm.close();
-      timeoutClosing(popupProfileForm);
     })
     .catch(err => console.log(err))
-      .finally(() => {
-        timeoutClosing(popupProfileForm);
-      })
+    .finally(() => {
+      timeoutClosing(popupProfileForm);
+    })
 }
 
 //Edit-profile popup
@@ -120,12 +119,11 @@ const submitAvatar = (src) => {
     .then(res => {
       userInfo.setAvatar(res.avatar);
       popupAvatarUpload.close();
-      timeoutClosing(popupAvatarUpload);
     })
     .catch(err => console.log(err))
-      .finally(() => {
-        timeoutClosing(popupAvatarUpload);
-      })
+    .finally(() => {
+      timeoutClosing(popupAvatarUpload);
+    })
 }
 
 //Change avatar
@@ -148,12 +146,11 @@ const handleCardDelete = (card) => {
       .then(() => {
         card.deleteElementByButton();
         popupDeletePic.close();
-        timeoutClosing(popupDeletePic);
       })
       .catch(err => console.log(err))
-        .finally(() => {
-          timeoutClosing(popupDeletePic);
-        });
+      .finally(() => {
+        timeoutClosing(popupDeletePic);
+      });
   });
 }
 
@@ -199,12 +196,11 @@ const submitCard = (newName, newAbout) => {
     .then(res => {
       renderCard(res);
       popupAddForm.close();
-      timeoutClosing(popupAddForm);
     })
     .catch(err => console.log(err))
-      .finally(() => {
-        timeoutClosing(popupAddForm);
-      })
+    .finally(() => {
+      timeoutClosing(popupAddForm);
+    })
 }
 
 //Add card popup
