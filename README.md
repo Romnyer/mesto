@@ -30,11 +30,6 @@ Mesto – это **проект** для публикации изображен
   <img src="https://img.shields.io/badge/🔧-REST%20API-black?&style=flat-square&logoColor=white" alt="REST API">
   <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=Webpack&logoColor=white" alt="Webpack" style="display:inline;"/>
   <img src="https://img.shields.io/badge/🔧-ООП-black?&style=flat-square&logoColor=white" alt="ООП">
+  <img src="https://img.shields.io/badge/🔧-Адаптивная%20вёрстка-black?&style=flat-square&logoColor=white" alt="Адаптивная вёрстка">
   <img src="https://img.shields.io/badge/🔧-БЭМ-black?&style=flat-square&logoColor=white" alt="БЭМ">
 </div>
-  <!--
-<img src="https://img.shields.io/badge/REST%20API-white?style=flat-square&logo=REST%20API&logoColor=black" alt="REST API"/>
-<img src="https://img.shields.io/badge/OOP-white?style=flat-square&logo=OOP&logoColor=black" alt="ООП"/>
-<img src="https://img.shields.io/badge/Adaptivity-white?style=flat-square&logo=Adaptivity&logoColor=black" alt="Адаптивность"/>
-<img src="https://img.shields.io/badge/BIM-white?style=flat-square&logo=BIM&logoColor=black" alt="БЭМ"/>
--->
