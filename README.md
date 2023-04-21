@@ -18,9 +18,9 @@ Mesto – это **проект** для публикации изображен
 
 Все изменения сохраняются на сервере и после перезагрузки страницы
 
-🌐**Ссылка на страницу** [Mesto](https://romnyer.github.io/mesto/)
+🌐**Ссылка** [Mesto](https://romnyer.github.io/mesto/)
 
-🖼**Figma**[Ссылка на макет в Figma для второй работы](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
+<img src="https://w7.pngwing.com/pngs/431/965/png-transparent-figma-designer-computer-icons-material-design-design-rectangle-poster-logo.png">**Figma** [Макет страницы](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
 
 ### Стек
 <div>
