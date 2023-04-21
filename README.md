@@ -26,8 +26,8 @@ Mesto – это **проект** для публикации изображен
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black" alt="JavaScript"/>
 <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="HTML"/>
 <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="CSS"/>
-<img src="https://img.shields.io/badge/REST%20API-white?style=flat-square&logo=REST%20API&logoColor=black" alt="REST API"/>
+<img src="https://img.shields.io/badge/-white?style=flat-square&logo=REST%20API&logoColor=black" alt="REST API"/>
 <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=Webpack&logoColor=white" alt="Webpack"/>
-<img src="https://img.shields.io/badge/ООП-white?style=flat-square&logo=ООП&logoColor=black" alt="ООП"/>
-<img src="https://img.shields.io/badge/Адаптивность-white?style=flat-square&logo=Адаптивность&logoColor=black" alt="Адаптивность"/>
-<img src="https://img.shields.io/badge/БЭМ-white?style=flat-square&logo=БЭМ&logoColor=black" alt="БЭМ"/>
+<img src="https://img.shields.io/badge/-white?style=flat-square&logo=ООП&logoColor=black" alt="ООП"/>
+<img src="https://img.shields.io/badge/-white?style=flat-square&logo=Адаптивность&logoColor=black" alt="Адаптивность"/>
+<img src="https://img.shields.io/badge/-white?style=flat-square&logo=БЭМ&logoColor=black" alt="БЭМ"/>
