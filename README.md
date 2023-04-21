@@ -23,18 +23,10 @@ Mesto – это **проект** для публикации изображен
 **Figma** [Ссылка на макет в Figma для второй работы](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
 
 ### Стек
-<div>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black" alt="JavaScript"/>
-</div>
-<div>
-  <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="HTML"/>
-</div>
-<div>
-  <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="CSS"/>
-</div>
-<div>
-  <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=Webpack&logoColor=white" alt="Webpack"/>
-</div>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black" alt="JavaScript" style="display:block;"/>
+<img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="HTML" style="display:block;"/>
+<img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="CSS" style="display:block;"/>
+<img src="https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=Webpack&logoColor=white" alt="Webpack" style="display:block;"/>
   <!--
 <img src="https://img.shields.io/badge/REST%20API-white?style=flat-square&logo=REST%20API&logoColor=black" alt="REST API"/>
 <img src="https://img.shields.io/badge/OOP-white?style=flat-square&logo=OOP&logoColor=black" alt="ООП"/>
