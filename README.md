@@ -22,7 +22,7 @@ Mesto – это **проект** для публикации изображен
 
 🌐**Ссылка** [Mesto](https://romnyer.github.io/mesto/)
 
-🖼 **Figma** [Макет страницы](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
+🖼**Figma** [Макет страницы](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
 
 ### Стек
 <div>
